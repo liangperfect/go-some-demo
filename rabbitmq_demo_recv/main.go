@@ -46,9 +46,11 @@ func main() {
 	forever := make(chan bool)
 
 	go func() {
+		log.Printf("开始执行func start")
 		for d := range msgs {
 			log.Printf("Received a message: %s", d.Body)
 		}
+		log.Printf("开始执行func end")
 	}()
 
 	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
